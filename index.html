@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITRA - Unlock the Universe of Apps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f0f23;
+            color: #fff;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 20% 30%, rgba(30, 30, 70, 0.8) 0%, transparent 20%),
+                              radial-gradient(circle at 80% 70%, rgba(70, 30, 80, 0.6) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(15, 15, 35, 0.95);
+            border-bottom: 1px solid #333366;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #6c63ff;
+            text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+        }
+        
+        .logo i {
+            font-size: 28px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            color: #aaaacc;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: #6c63ff;
+            background-color: rgba(108, 99, 255, 0.1);
+        }
+        
+        .join-channel {
+            background: linear-gradient(135deg, #6c63ff, #9d4edd);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .join-channel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+        
+        /* Hero Section - First Screenshot */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #6c63ff, #ff6b9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaaacc;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto 40px;
+            position: relative;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 18px 20px 18px 50px;
+            background-color: rgba(30, 30, 60, 0.8);
+            border: 1px solid #444488;
+            border-radius: 50px;
+            font-size: 16px;
+            color: white;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .search-box:focus {
+            border-color: #6c63ff;
+            box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaaacc;
+            font-size: 18px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 10px 25px;
+            background-color: rgba(30, 30, 60, 0.6);
+            border-radius: 30px;
+            color: #aaaacc;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .tab:hover, .tab.active {
+            background-color: #6c63ff;
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        /* Apps Section - Second Screenshot */
+        .apps-section {
+            padding: 20px 0 60px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .filter-badges {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 8px 20px;
+            background-color: rgba(30, 30, 60, 0.6);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #aaaacc;
+        }
+        
+        .badge.new {
+            background-color: rgba(255, 107, 157, 0.2);
+            color: #ff6b9d;
+        }
+        
+        .badge.popular {
+            background-color: rgba(108, 99, 255, 0.2);
+            color: #6c63ff;
+        }
+        
+        .badge.coming-soon {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+        
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .app-card {
+            background-color: rgba(30, 30, 60, 0.6);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+        
+        .app-card.new::before {
+            content: "NEW";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ff6b9d;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .app-card.coming-soon::before {
+            content: "COMING SOON";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .app-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .app-subtitle {
+            font-size: 16px;
+            color: #aaaacc;
+            font-weight: 500;
+        }
+        
+        .app-badge {
+            background-color: rgba(108, 99, 255, 0.2);
+            color: #6c63ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .app-badge.coming-soon {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+        
+        .app-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            color: #aaaacc;
+            font-size: 14px;
+        }
+        
+        .app-details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .app-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #6c63ff, #9d4edd);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .download-btn.coming-soon {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+        
+        .download-btn.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .lets-study-btn {
+            background-color: transparent;
+            color: #6c63ff;
+            border: 1px solid #6c63ff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .lets-study-btn:hover {
+            background-color: rgba(108, 99, 255, 0.1);
+        }
+        
+        .lets-study-btn.coming-soon {
+            color: #6c757d;
+            border-color: #6c757d;
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+        
+        .lets-study-btn.coming-soon:hover {
+            background-color: transparent;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            background-color: rgba(20, 20, 40, 0.5);
+            margin: 40px 0;
+            border-radius: 20px;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #6c63ff, #ff6b9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccccee;
+            margin-bottom: 25px;
+        }
+        
+        .about-text.highlight {
+            background-color: rgba(108, 99, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #6c63ff;
+            font-style: italic;
+            margin: 30px 0;
+        }
+        
+        .about-text.quote {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(30, 30, 60, 0.6);
+            border: 1px solid rgba(108, 99, 255, 0.3);
+        }
+        
+        .telegram-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #6c63ff, #9d4edd);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .telegram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .whatsapp-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        /* Footer - Third Screenshot */
+        footer {
+            background-color: rgba(10, 10, 25, 0.95);
+            padding: 40px 0 30px;
+            border-top: 1px solid #333366;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+        
+        .footer-tagline {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #aaaacc;
+            max-width: 500px;
+        }
+        
+        .powered-by {
+            color: #7777aa;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .powered-by span {
+            color: #6c63ff;
+            font-weight: bold;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: #666699;
+            font-size: 14px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333366;
+            width: 100%;
+        }
+        
+        /* Download Instructions */
+        .download-instructions {
+            background-color: rgba(30, 30, 60, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #25D366;
+        }
+        
+        .download-instructions h3 {
+            color: #6c63ff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .download-instructions ol {
+            padding-left: 20px;
+            color: #aaaacc;
+            line-height: 1.6;
+        }
+        
+        .download-instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Coming Soon Alert */
+        .coming-soon-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(30, 30, 60, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            display: none;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #ffc107;
+        }
+        
+        .coming-soon-alert.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+        
+        .coming-soon-alert h3 {
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .coming-soon-alert p {
+            color: #ccccee;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .coming-soon-alert .close-btn {
+            background: linear-gradient(135deg, #6c63ff, #9d4edd);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .coming-soon-alert .close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+            
+            .app-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .app-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .download-btn, .lets-study-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .about-text {
+                font-size: 1rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .category-tabs {
+                gap: 10px;
+            }
+            
+            .tab {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            
+            .about-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-text.quote {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Page Navigation */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation (Third Screenshot) -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-infinity"></i>
+                <span>MITRA</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="apps">Apps</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="https://t.me/+mq7g373RrHViNzg1" target="_blank" class="join-channel">
+                <i class="fab fa-telegram-plane"></i>
+                Join Channel
+            </a>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section class="page-section active" id="home-section">
+        <!-- Hero Section (First Screenshot) -->
+        <section class="hero">
+            <div class="container">
+                <h1>MITRA</h1>
+                <p>Unlock the Universe of Apps</p>
+                
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" placeholder="Search apps...">
+                </div>
+                
+                <div class="category-tabs">
+                    <div class="tab active">All</div>
+                    <div class="tab">Educational</div>
+                    <div class="tab">New</div>
+                    <div class="tab">Popular</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apps Section (Second Screenshot) -->
+        <section class="apps-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Apps</h2>
+                    <div class="filter-badges">
+                        <div class="badge new">NEW</div>
+                        <div class="badge popular">Popular</div>
+                        <div class="badge coming-soon">Coming Soon</div>
+                    </div>
+                </div>
+                
+                <div class="apps-grid">
+                    <!-- App 1 - RG VIKRAMJEET -->
+                    <div class="app-card new">
+                        <div class="app-header">
+                            <div>
+                                <h3 class="app-title">RG VIKRAMJEET</h3>
+                                <p class="app-subtitle">RG VIKRAMJEET APK v01.01</p>
+                            </div>
+                            <div class="app-badge">PREMIUM APK</div>
+                        </div>
+                        
+                        <div class="app-details">
+                            <span><i class="fas fa-tag"></i> v01.01</span>
+                            <span><i class="fas fa-download"></i> 200+</span>
+                            <span><i class="fas fa-hdd"></i> 41.48 MB</span>
+                        </div>
+                        
+                        <div class="app-actions">
+                            <a href="https://www.mediafire.com/file/7mvi39q0cesfmoq/app.apk/file?dkey=108deccpaeb&r=1869" class="download-btn" download="RG_Vikramjeet_v1.0.apk">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                            <button class="lets-study-btn">Let's Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- App 2 - GYAN BINDU -->
+                    <div class="app-card new">
+                        <div class="app-header">
+                            <div>
+                                <h3 class="app-title">GYAN BINDU</h3>
+                                <p class="app-subtitle">GYAN BINDU APK - v01.01</p>
+                            </div>
+                            <div class="app-badge">PREMIUM APK</div>
+                        </div>
+                        
+                        <div class="app-details">
+                            <span><i class="fas fa-tag"></i> v01.01</span>
+                            <span><i class="fas fa-download"></i> 100+</span>
+                            <span><i class="fas fa-hdd"></i> 21.78 MB</span>
+                        </div>
+                        
+                        <div class="app-actions">
+                            <a href="https://www.mediafire.com/file/d6tmx29whrs5482/GYAN_BINDU_1.0.apk/file?dkey=liv5mjfi1ww&r=305" class="download-btn" download="Gyan_Bindu_v1.0.apk">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                            <button class="lets-study-btn">Let's Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- App 3 - SCIENCE MAGNET -->
+                    <div class="app-card new coming-soon">
+                        <div class="app-header">
+                            <div>
+                                <h3 class="app-title">SCIENCE MAGNET</h3>
+                                <p class="app-subtitle">SCIENCE MAGNET APK v01.01</p>
+                            </div>
+                            <div class="app-badge coming-soon">COMING SOON</div>
+                        </div>
+                        
+                        <div class="app-details">
+                            <span><i class="fas fa-tag"></i> v01.01</span>
+                            <span><i class="fas fa-download"></i> 0</span>
+                            <span><i class="fas fa-hdd"></i> 35.50 MB</span>
+                        </div>
+                        
+                        <div class="app-actions">
+                            <button class="download-btn coming-soon" data-app="Science Magnet">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="lets-study-btn coming-soon" data-app="Science Magnet">Let's Study</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Download Instructions -->
+                <div class="download-instructions">
+                    <h3><i class="fas fa-info-circle"></i> How to Install:</h3>
+                    <ol>
+                        <li>Click the "Download" button above</li>
+                        <li>Open the downloaded APK file</li>
+                        <li>Allow installation from unknown sources if prompted</li>
+                        <li>Follow the installation instructions</li>
+                        <li>Open the app and start learning!</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Apps Section (Standalone) -->
+    <section class="page-section" id="apps-section">
+        <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
+            <div class="section-header">
+                <h2 class="section-title">Our Apps</h2>
+                <div class="filter-badges">
+                    <div class="badge new">NEW</div>
+                    <div class="badge popular">Popular</div>
+                    <div class="badge">Educational</div>
+                    <div class="badge coming-soon">Coming Soon</div>
+                </div>
+            </div>
+            
+            <div class="apps-grid">
+                <!-- App 1 - RG VIKRAMJEET -->
+                <div class="app-card new">
+                    <div class="app-header">
+                        <div>
+                            <h3 class="app-title">RG VIKRAMJEET</h3>
+                            <p class="app-subtitle">RG VIKRAMJEET APK v01.01</p>
+                        </div>
+                        <div class="app-badge">PREMIUM APK</div>
+                    </div>
+                    
+                    <div class="app-details">
+                        <span><i class="fas fa-tag"></i> v01.01</span>
+                        <span><i class="fas fa-download"></i> 200+</span>
+                        <span><i class="fas fa-hdd"></i> 41.48 MB</span>
+                    </div>
+                    
+                    <div class="app-actions">
+                        <a href="https://www.mediafire.com/file/7mvi39q0cesfmoq/app.apk/file?dkey=108deccpaeb&r=1869" class="download-btn" download="RG_Vikramjeet_v1.0.apk">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <button class="lets-study-btn">Let's Study</button>
+                    </div>
+                </div>
+                
+                <!-- App 2 - GYAN BINDU -->
+                <div class="app-card new">
+                    <div class="app-header">
+                        <div>
+                            <h3 class="app-title">GYAN BINDU</h3>
+                            <p class="app-subtitle">GYAN BINDU APK - v01.01</p>
+                        </div>
+                        <div class="app-badge">PREMIUM APK</div>
+                    </div>
+                    
+                    <div class="app-details">
+                        <span><i class="fas fa-tag"></i> v01.01</span>
+                        <span><i class="fas fa-download"></i> 100+</span>
+                        <span><i class="fas fa-hdd"></i> 21.78 MB</span>
+                    </div>
+                    
+                    <div class="app-actions">
+                        <a href="https://www.mediafire.com/file/d6tmx29whrs5482/GYAN_BINDU_1.0.apk/file?dkey=liv5mjfi1ww&r=305" class="download-btn" download="Gyan_Bindu_v1.0.apk">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <button class="lets-study-btn">Let's Study</button>
+                    </div>
+                </div>
+                
+                <!-- App 3 - SCIENCE MAGNET -->
+                <div class="app-card new coming-soon">
+                    <div class="app-header">
+                        <div>
+                            <h3 class="app-title">SCIENCE MAGNET</h3>
+                            <p class="app-subtitle">SCIENCE MAGNET APK v01.01</p>
+                        </div>
+                        <div class="app-badge coming-soon">COMING SOON</div>
+                    </div>
+                    
+                    <div class="app-details">
+                        <span><i class="fas fa-tag"></i> v01.01</span>
+                        <span><i class="fas fa-download"></i> 0</span>
+                        <span><i class="fas fa-hdd"></i> 35.50 MB</span>
+                    </div>
+                    
+                    <div class="app-actions">
+                        <button class="download-btn coming-soon" data-app="Science Magnet">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="lets-study-btn coming-soon" data-app="Science Magnet">Let's Study</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Download Instructions -->
+            <div class="download-instructions">
+                <h3><i class="fas fa-info-circle"></i> Installation Guide:</h3>
+                <ol>
+                    <li>Click the "Download" button for your desired app</li>
+                    <li>Wait for the APK file to download completely</li>
+                    <li>Open your device's file manager and locate the downloaded APK</li>
+                    <li>Tap on the APK file to begin installation</li>
+                    <li>If prompted, enable "Install from unknown sources" in settings</li>
+                    <li>Follow the on-screen instructions to complete installation</li>
+                    <li>Launch the app and enjoy premium educational content!</li>
+                </ol>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; color: #aaaacc; font-size: 1.1rem;">
+                <p>More apps coming soon! Stay tuned to our Telegram channel for updates.</p>
+                <a href="https://t.me/+mq7g373RrHViNzg1" target="_blank" class="telegram-link" style="margin-top: 20px;">
+                    <i class="fab fa-telegram-plane"></i> Join Telegram for Updates
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="page-section" id="about-section">
+        <div class="about-section">
+            <div class="container about-content">
+                <h2 class="about-title">About MITRA</h2>
+                
+                <p class="about-text">
+                    We create a next-generation learning platform built for aspirants who value quality, clarity, and performance.
+                </p>
+                
+                <p class="about-text">
+                    Our focus is simple — deliver well-structured courses, latest batches, and exam-oriented test series through a clean, fast, and distraction-free experience. Every feature is designed to save time, improve focus, and enhance preparation.
+                </p>
+                
+                <p class="about-text highlight">
+                    We believe premium education should be accessible, reliable, and smooth.
+                    That's why our platform is ad-free, optimized for speed, and continuously updated based on real user needs.
+                </p>
+                
+                <p class="about-text">
+                    This is not just a platform — it's a smart ecosystem for serious preparation.
+                </p>
+                
+                <p class="about-text quote">
+                    Prepare with confidence. Learn without limits.
+                </p>
+                
+                <p class="about-text">
+                    Join our channels for updates, new releases, and community support:
+                </p>
+                
+                <div class="contact-buttons">
+                    <a href="https://t.me/+mq7g373RrHViNzg1" target="_blank" class="telegram-link">
+                        <i class="fab fa-telegram-plane"></i> Telegram Channel
+                    </a>
+                    
+                    <a href="https://whatsapp.com/channel/0029Vb7dU6OFi8xZakWrnz42" target="_blank" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="page-section" id="contact-section">
+        <div class="container" style="padding: 80px 20px; text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px; background: linear-gradient(to right, #6c63ff, #ff6b9d); -webkit-background-clip: text; background-clip: text; color: transparent;">Contact Us</h2>
+            
+            <div style="max-width: 600px; margin: 0 auto; background-color: rgba(30, 30, 60, 0.6); padding: 40px; border-radius: 15px;">
+                <p style="font-size: 1.2rem; color: #ccccee; margin-bottom: 30px; line-height: 1.6;">
+                    Have questions or need support? Reach out to us through our channels for the fastest response.
+                </p>
+                
+                <div class="contact-buttons">
+                    <a href="https://t.me/+mq7g373RrHViNzg1" target="_blank" class="telegram-link">
+                        <i class="fab fa-telegram-plane"></i> Telegram Channel
+                    </a>
+                    
+                    <a href="https://whatsapp.com/channel/0029Vb7dU6OFi8xZakWrnz42" target="_blank" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Channel
+                    </a>
+                </div>
+                
+                <p style="color: #aaaacc; font-size: 0.9rem; margin-top: 30px;">
+                    For business inquiries or partnership opportunities, please contact us through our channels.
+                </p>
+                
+                <p style="color: #6c63ff; font-size: 1rem; margin-top: 20px; font-weight: 600;">
+                    <i class="fas fa-clock"></i> Response Time: Usually within 24 hours
+                </p>
+                
+                <div style="margin-top: 30px; padding: 15px; background-color: rgba(108, 99, 255, 0.1); border-radius: 10px;">
+                    <p style="color: #aaaacc; font-size: 0.9rem;">
+                        <i class="fas fa-download"></i> <strong>Download Help:</strong> If you face any issues downloading our apps, please contact us through Telegram or WhatsApp for immediate assistance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Third Screenshot) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MITRA</div>
+                <p class="footer-tagline">Unlock the Universe of Apps</p>
+                <p class="powered-by">Powered by <span>MITRA</span></p>
+                
+                <div class="copyright">
+                    &copy; 2025 MITRA. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Coming Soon Alert Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="coming-soon-alert" id="comingSoonAlert">
+        <h3><i class="fas fa-clock"></i> Coming Soon!</h3>
+        <p id="comingSoonMessage">This app is currently under development. We're working hard to bring you the best experience possible. Stay tuned for updates!</p>
+        <p style="color: #ffc107; font-size: 0.9rem; margin-top: 10px;">
+            <i class="fas fa-bell"></i> Subscribe to our Telegram channel to get notified when it's released.
+        </p>
+        <button class="close-btn" id="closeAlert">Got it!</button>
+    </div>
+
+    <script>
+        // Tab Switching
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+        
+        // Search functionality
+        const searchBox = document.querySelector('.search-box');
+        if (searchBox) {
+            searchBox.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const appCards = document.querySelectorAll('.app-card');
+                
+                appCards.forEach(card => {
+                    const appTitle = card.querySelector('.app-title').textContent.toLowerCase();
+                    const appSubtitle = card.querySelector('.app-subtitle').textContent.toLowerCase();
+                    
+                    if (appTitle.includes(searchTerm) || appSubtitle.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        // "Let's Study" button functionality
+        const studyBtns = document.querySelectorAll('.lets-study-btn:not(.coming-soon)');
+        studyBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const appTitle = this.closest('.app-card').querySelector('.app-title').textContent;
+                if (appTitle === "RG VIKRAMJEET" || appTitle === "GYAN BINDU") {
+                    alert(`Opening ${appTitle} study materials...\n\nPlease open the app after installation to access all study materials.`);
+                }
+            });
+        });
+        
+        // Navigation between pages
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show the corresponding page section
+                const pageId = this.getAttribute('data-page');
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                document.getElementById(`${pageId}-section`).classList.add('active');
+                
+                // Scroll to top when navigating
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Track downloads
+        const downloadLinks = document.querySelectorAll('.download-btn:not(.coming-soon)');
+        downloadLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const appTitle = this.closest('.app-card').querySelector('.app-title').textContent;
+                console.log(`Download started: ${appTitle}`);
+                
+                // Optional: You can add analytics here
+                // Example: Send download event to analytics service
+                // analytics.track('download', { app: appTitle });
+            });
+        });
+        
+        // Coming Soon functionality
+        const comingSoonButtons = document.querySelectorAll('.coming-soon');
+        const comingSoonAlert = document.getElementById('comingSoonAlert');
+        const overlay = document.getElementById('overlay');
+        const closeAlert = document.getElementById('closeAlert');
+        const comingSoonMessage = document.getElementById('comingSoonMessage');
+        
+        comingSoonButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const appName = this.getAttribute('data-app') || 'Science Magnet';
+                comingSoonMessage.textContent = `${appName} is currently under development. We're working hard to bring you the best experience possible. Stay tuned for updates!`;
+                comingSoonAlert.classList.add('active');
+                overlay.classList.add('active');
+            });
+        });
+        
+        // Close coming soon alert
+        closeAlert.addEventListener('click', function() {
+            comingSoonAlert.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        overlay.addEventListener('click', function() {
+            comingSoonAlert.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Close alert with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && comingSoonAlert.classList.contains('active')) {
+                comingSoonAlert.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+  </html>
